@@ -77,6 +77,10 @@ C:\USERS\SURAJ\DOWNLOADS\EYESPY\EYESPY
         test.html
 ```
 
+## Testing the Model
+
+To test only the model, you can run the `modelrun.py` file (with streamlit) after running the `fake_news_model.ipynb` file to generate the model and vectorizer files.
+
 ## Dependencies
 
 - Flask
