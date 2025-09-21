@@ -42,59 +42,39 @@ A cutting-edge multimodal system for detecting fake news and manipulated content
 
     Open your web browser and go to `http://localhost:8080`.
 
-## Architecture
+## File Structure
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                        FRONTEND LAYER                          │
-├─────────────────────────────────────────────────────────────────┤
-│  ┌─────────────────┐    ┌─────────────────┐                    │
-│  │   Text Input    │    │  Image Upload   │                    │
-│  │   Text Area     │    │   File Input    │                    │
-│  └─────────────────┘    └─────────────────┘                    │
-│           │                       │                             │
-│           └───────────┬───────────┘                             │
-│                       │                                         │
-│              ┌─────────────────┐                               │
-│              │ JavaScript API  │                               │
-│              │   fetch() calls │                               │
-│              └─────────────────┘                               │
-└─────────────────────────┼───────────────────────────────────────┘
-                          │ HTTP/REST API
-                          │ (JSON/FormData)
-┌─────────────────────────▼───────────────────────────────────────┐
-│                    APPLICATION LAYER                           │
-├─────────────────────────────────────────────────────────────────┤
-│  ┌─────────────────────────────────────────────────────────────┐ │
-│  │                 Flask Routes                                │ │
-│  │  POST /api/predict                                          │ │
-│  │  GET  /api/health                                          │ │
-│  └─────────────────────────────────────────────────────────────┘ │
-└─────────────────────────┬───────────────────────────────────────┘
-                          │
-┌─────────────────────────▼───────────────────────────────────────┐
-│                    BUSINESS LOGIC LAYER                       │
-├─────────────────────────────────────────────────────────────────┤
-│  ┌─────────────────────────────────────────────────────────────┐ │
-│  │              FakeNewsDetector Class                         │ │
-│  │                                                             │ │
-│  │  ┌─────────────────┐  ┌─────────────────┐                  │ │
-│  │  │  Text Analysis  │  │ Image Analysis  │                  │ │
-│  │  │     Engine      │  │     Engine      │                  │ │
-│  │  └─────────────────┘  └─────────────────┘                  │ │
-│  └─────────────────────────────────────────────────────────────┘ │
-└─────────────────────────┬───────────────────────────────────────┘
-                          │
-┌─────────────────────────▼───────────────────────────────────────┐
-│                    DATA/MODEL LAYER                           │
-├─────────────────────────────────────────────────────────────────┤
-│  ┌─────────────────┐    ┌─────────────────┐    ┌─────────────┐  │
-│  │  TF-IDF         │    │  Logistic       │    │  MongoDB    │  │
-│  │  Vectorizer     │    │  Regression     │    │  Database   │  │
-│  │  (vectorizer.jb)│    │  (model.jb)     │    │             │  │
-│  └─────────────────┘    └─────────────────┘    └─────────────┘  │
-└─────────────────────────────────────────────────────────────────┘
+C:\USERS\SURAJ\DOWNLOADS\EYESPY\EYESPY
 
+    architecture_diagram.md
+    
++---backend
+
+        app.py
+        cloud_setup.py
+        database.py
+        database_extension.py
+        dataset_loader.py
+        docker_setup.bat
+        fake_news_model.ipynb
+        model.jb
+        modelrun.py
+        requirements.txt
+        run_server.bat
+        run_with_mongodb.bat
+        setup_database.py
+        vectorizer.jb
+        
++---Datasets
+
+        Fake.csv
+        True_news.csv
+        
++---frontend
+        index.html
+        serve.py
+        test.html
 ```
 
 ## Dependencies
